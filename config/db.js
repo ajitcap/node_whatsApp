@@ -4,6 +4,7 @@ var connection = mysql.createConnection({
     host: "43.241.39.78",
     user: "eforce_v2_user",
     password: "eforce_v2_pass",
+    multipleStatements:true
     // database: "general_contractor_dev"
 });
 
