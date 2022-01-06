@@ -39,6 +39,32 @@ app.post("/link-click-analytics", verifyToken, function (req, res) {
     }
 });
 
+
+// get api
+app.get("/atul", function(req,res){
+
+    try {
+       const  query="SELECT *FROM whatsapp_skalav2.whatsapp_queue"
+
+        sql.query(query, function(err,res1){
+            if(err)
+            {
+                console.log("error",err);
+            }
+            console.log("resutl", res1);
+            res.status(200).json({
+                status:'200',
+                hie:'hello',
+                data:res1
+            })
+        })
+        
+    } catch (error) {
+        console.log('error',error);
+    }
+
+} )
+
 function verifyToken(req, res, next) {
     const bearerHeader = req.headers['authorization'];
 
