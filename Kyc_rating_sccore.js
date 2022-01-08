@@ -48,15 +48,13 @@ kyc_rating.put('/kyc_rating_update', (req, response) => {
 
         let data = req.body;
 
-        console.log("nody data",data);
 
         let query = "SET @apiType = ?; SET @base_no = ?; SET @pan_no = ?; SET @gst_no = ?; SET @pf_no = ?; \
         SET @esic_no =?;SET @itr_current_year_no =?;SET @itr_secondlast_year_no =?;SET @itr_thirdlast_year_no =?;\
      SET @reference_contact_details1_no =?;SET  @reference_contact_details2_no =?;SET @work_order1_no =?;\
      SET @work_order2_no =?; SET @work_order_cert1_no=?; SET @work_order_cert2_no=?; SET @lin_no =?;SET @cin_no =?;SET @tax_tan_no =?;\
      SET @date_of_incorporation_no =?;SET @mobile_no_num =?;SET @email_no =?;\
-     SET @msme_no =?;SET @mgmt_quota_no =? ;  \
-                                                                                                                \
+     SET @msme_no =?;SET @mgmt_quota_no =? ;                                     \
      CALL  common_skalav2.sp_kyc_score('post',@base_no,@pan_no,@gst_no,@pf_no,@esic_no,@itr_current_year_no,@itr_secondlast_year_no,  \
      @itr_thirdlast_year_no,@reference_contact_details1_no,@reference_contact_details2_no,@work_order1_no, @work_order2_no, @work_order_cert1_no,@work_order_cert2_no , \
      @lin_no,@cin_no,@tax_tan_no,@date_of_incorporation_no,@mobile_no_num,@email_no,@msme_no,@mgmt_quota_no)";
@@ -83,6 +81,20 @@ kyc_rating.put('/kyc_rating_update', (req, response) => {
     } catch (error) {
 
         console.log("error of post", error);
+    }
+})
+
+
+// lc kyc score update
+kyc_rating.put('/lc_kyc_update',(req,response)=>{
+    try {
+
+        let data = req.body;
+        let query="SET @apiType = ?; SET @lc_id=?; CALL common_skalav2.sp_subContractor_kyc_scroe_update('lc_score_update',@lc_id)";
+        
+
+    } catch (error) {
+        console.log("lc kyc update-->",error);
     }
 })
 
