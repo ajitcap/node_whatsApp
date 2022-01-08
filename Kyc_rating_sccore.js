@@ -86,17 +86,17 @@ kyc_rating.put('/kyc_rating_update', (req, response) => {
 
 
 // lc kyc score update
-kyc_rating.put('/lc_kyc_update',(req,response)=>{
-    try {
+// kyc_rating.put('/lc_kyc_update',(req,response)=>{
+//     try {
 
-        let data = req.body;
-        let query="SET @apiType = ?; SET @lc_id=?; CALL common_skalav2.sp_subContractor_kyc_scroe_update('lc_score_update',@lc_id)";
+//         let data = req.body;
+//         let query="SET @apiType = ?; SET @lc_id=?; CALL common_skalav2.sp_subContractor_kyc_scroe_update('lc_score_update',@lc_id)";
         
 
-    } catch (error) {
-        console.log("lc kyc update-->",error);
-    }
-})
+//     } catch (error) {
+//         console.log("lc kyc update-->",error);
+//     }
+// })
 
 
 
