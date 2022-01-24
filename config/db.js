@@ -1,10 +1,10 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-    host: "43.241.39.78",
+    host: "65.0.63.7",
     user: "eforce_v2_user",
     password: "eforce_v2_pass",
-    // database: "general_contractor_dev"
+    database: "users_skala2_2"
 });
 
 connection.connect(function(err) {
